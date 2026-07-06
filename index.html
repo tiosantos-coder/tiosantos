@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valdemir de Oliveira Gomes — Tio Santos</title>
+  <meta name="description" content="Gestor e analista cultural, cronista do teatro de Diadema, compositor. Textos, depoimentos e trajetória de Valdemir de Oliveira Gomes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --off-white: #f7f5f0;
+      --light-gray: #ebebeb;
+      --mid-gray: #999;
+      --dark-gray: #444;
+      --text: #1a1a1a;
+      --accent: #2c5f8a;
+      --accent-light: #e8f0f8;
+      --border: #e0ddd8;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+      --max: 860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      margin-bottom: 1.5rem;
+    }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 500;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+    .hero-alias {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      font-style: italic;
+      color: var(--mid-gray);
+      margin-bottom: 2rem;
+    }
+    .hero-bio {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      line-height: 1.75;
+      color: var(--dark-gray);
+      max-width: 620px;
+    }
+    .hero-divider {
+      margin: 2.5rem 0 0;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .hero-stat-num {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .hero-stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+    }
+
+    /* LAYOUT */
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .section:last-of-type { border-bottom: none; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      white-space: nowrap;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+    .section-text {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      line-height: 1.85;
+      color: var(--dark-gray);
+      max-width: 680px;
+    }
+    .section-text + .section-text { margin-top: 1rem; }
+
+    /* PULL QUOTE */
+    .pull-quote {
+      margin: 2.5rem 0;
+      padding-left: 1.5rem;
+      border-left: 3px solid var(--accent);
+    }
+    .pull-quote p {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    /* CARD GRID */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+    .card {
+      background: var(--white);
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: background 0.15s;
+    }
+    .card:hover { background: var(--off-white); }
+    .card-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .card-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--mid-gray);
+      line-height: 1.55;
+    }
+    .card-arrow {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    /* DEPOIMENTO */
+    .depoimento-placeholder {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem 2rem 2rem 1.5rem;
+      margin-top: 2rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    .depoimento-icon {
+      font-family: var(--serif);
+      font-size: 3rem;
+      color: var(--border);
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: -4px;
+    }
+    .depoimento-info-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      margin-bottom: 0.4rem;
+    }
+    .depoimento-info-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .depoimento-info-desc {
+      font-size: 0.88rem;
+      color: var(--mid-gray);
+      line-height: 1.6;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      padding: 7px 16px;
+      border-radius: 2px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    /* PERFIL */
+    .perfil-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 600px) {
+      .perfil-grid { grid-template-columns: 1fr; }
+    }
+    .perfil-block-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .perfil-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .perfil-list li {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: var(--dark-gray);
+      line-height: 1.4;
+      padding-left: 0.9rem;
+      position: relative;
+    }
+    .perfil-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--mid-gray);
+      font-size: 0.8rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--off-white);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .footer-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .footer-sub {
+      font-size: 0.78rem;
+      color: var(--mid-gray);
+      letter-spacing: 0.05em;
+    }
+
+    /* RESPONSIVE NAV */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero { padding: 3rem 1.25rem 2.5rem; }
+      .container { padding: 0 1.25rem; }
+      .section { padding: 3rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">Valdemir de Oliveira Gomes</a>
+      <ul class="nav-links">
+        <li><a href="#textos">Textos</a></li>
+        <li><a href="#depoimento">Depoimento</a></li>
+        <li><a href="#perfil">Perfil</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <p class="hero-eyebrow">Memória &middot; Cultura &middot; Teatro &middot; Diadema</p>
+    <h1 class="hero-name">Valdemir de<br>Oliveira Gomes</h1>
+    <p class="hero-alias">Tio Santos</p>
+    <p class="hero-bio">
+      Gestor e analista cultural com mais de 25 anos de experiência institucional na Secretaria de Cultura de Diadema. Cronista da história teatral da cidade. Compositor. Parecerista credenciado em editais públicos de fomento à cultura.
+    </p>
+    <div class="hero-divider">
+      <div class="hero-stat">
+        <span class="hero-stat-num">25+</span>
+        <span class="hero-stat-label">anos de gestão cultural</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">Diadema</span>
+        <span class="hero-stat-label">São Paulo, Brasil</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">Teatro</span>
+        <span class="hero-stat-label">memória viva</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="textos" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Textos & Crônicas</span>
+          <span class="section-rule"></span>
+        </div>
+        <p class="section-text">
+          Escritos sobre cultura, memória e identidade — em especial sobre Diadema, sua gente e suas histórias. Os textos serão publicados aqui gradualmente.
+        </p>
+        <div class="card-grid">
+          <a href="#" class="card">
+            <p class="card-tag">Em breve</p>
+            <p class="card-title">O palco que a cidade construiu</p>
+            <p class="card-desc">A cena teatral de Diadema no fim dos anos 1970 e o que ela representou para uma geração.</p>
+            <span class="card-arrow">Em breve →</span>
+          </a>
+          <a href="#" class="card">
+            <p class="card-tag">Em breve</p>
+            <p class="card-title">Minha Louca Diadema</p>
+            <p class="card-desc">A canção, seus autores, e o que ela diz sobre uma cidade que pulsa muito além das suas fronteiras.</p>
+            <span class="card-arrow">Em breve →</span>
+          </a>
+          <a href="#" class="card">
+            <p class="card-tag">Em breve</p>
+            <p class="card-title">Cultura como política pública</p>
+            <p class="card-desc">Reflexões sobre vinte e cinco anos dentro das engrenagens institucionais da cultura brasileira.</p>
+            <span class="card-arrow">Em breve →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="depoimento" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Depoimento Teatral</span>
+          <span class="section-rule"></span>
+        </div>
+        <h2 class="section-title">A história que vivi no teatro de Diadema</h2>
+        <p class="section-text">
+          Do fim dos anos 1970 até a virada do milênio, Diadema fervilhava de grupos, pessoas e utopias cênicas. Eu estava lá — na plateia, nos bastidores, nos palcos improvisados de salões e sindicatos.
+        </p>
+        <div class="pull-quote">
+          <p>"O teatro não era entretenimento. Era o único lugar onde a gente podia dizer o que não podia ser dito em nenhum outro lugar."</p>
+        </div>
+        <p class="section-text">
+          Este depoimento reúne memória afetiva e registro histórico de uma cidade que construiu sua cultura com as próprias mãos. Figuras como Dona Leda Sylvia Szochalewicz, Alberto Chagas, Adílio Oliveira, Vladão Trombini e Luiz Nunes habitam estas páginas não como personagens, mas como companheiros reais de cena.
+        </p>
+        <div class="depoimento-placeholder">
+          <span class="depoimento-icon">"</span>
+          <div>
+            <p class="depoimento-info-label">Documento em preparação</p>
+            <p class="depoimento-info-title">Depoimento completo — Tio Santos</p>
+            <p class="depoimento-info-desc">O texto integral do depoimento sobre a história do teatro em Diadema será disponibilizado em breve neste espaço.</p>
+            <a href="#" class="btn">Notifique-me quando publicado</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="perfil" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Perfil Profissional</span>
+          <span class="section-rule"></span>
+        </div>
+        <h2 class="section-title">Trajetória e atuação</h2>
+        <p class="section-text">
+          Mais de 25 anos dedicados à gestão cultural pública em Diadema, com atuação em comitês de seleção dos programas Aldir Blanc, Paulo Gustavo e Fundo Municipal de Cultura. Formação em Análise e Parecer Técnico de Projetos Culturais pelo IFG/Escult (2025, 160h) e pós-graduação em Arte Integrativa. Co-autor do capítulo cultural do Atlas Ambiental de Diadema.
+        </p>
+        <div class="perfil-grid">
+          <div>
+            <p class="perfil-block-label">Áreas de atuação</p>
+            <ul class="perfil-list">
+              <li>Gestão cultural pública</li>
+              <li>Análise e parecer de projetos culturais</li>
+              <li>Teatro e artes cênicas</li>
+              <li>Políticas públicas de cultura</li>
+              <li>Produção e fomento cultural</li>
+              <li>Música e composição</li>
+            </ul>
+          </div>
+          <div>
+            <p class="perfil-block-label">Formação e credenciais</p>
+            <ul class="perfil-list">
+              <li>Certificação em Análise e Parecer Técnico de Projetos Culturais — IFG/Escult, 2025</li>
+              <li>Pós-graduação em Arte Integrativa</li>
+              <li>Parecerista credenciado — múltiplos editais públicos</li>
+              <li>Co-autor, Atlas Ambiental de Diadema</li>
+              <li>Comitês Aldir Blanc, Paulo Gustavo e Fundo Municipal de Cultura</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p class="footer-name">Valdemir de Oliveira Gomes — Tio Santos</p>
+    <p class="footer-sub">Diadema, São Paulo &middot; Gestão e Memória Cultural</p>
+  </footer>
+
+</body>
+</html>
