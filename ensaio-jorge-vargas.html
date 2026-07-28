@@ -1,0 +1,342 @@
+<!DOCTYPE html>  
+<html lang="pt-BR">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>A Imaginação Ativa no Processo Criativo do Escultor Jorge Luis Vargas Gaitán — Tio Santos</title>  
+<meta name="description" content="Ensaio de tiosantos sobre a imaginação no processo criativo do escultor peruano Jorge Luis Vargas Gaitán, radicado em Diadema.">  
+<link rel="preconnect" href="https://fonts.googleapis.com">  
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">  
+<style>  
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }  
+  
+:root {  
+ --white: #ffffff;  
+ --off-white: #f7f5f0;  
+ --light-gray: #ebebeb;  
+ --mid-gray: #999;  
+ --dark-gray: #444;  
+ --text: #1a1a1a;  
+ --accent: #2c5f8a;  
+ --accent-light: #e8f0f8;  
+ --border: #e0ddd8;  
+ --serif: 'Cormorant Garamond', Georgia, serif;  
+ --sans: 'Inter', system-ui, sans-serif;  
+ --max: 860px;  
+}  
+  
+html { scroll-behavior: smooth; }  
+  
+body {  
+ font-family: var(--sans);  
+ background: var(--white);  
+ color: var(--text);  
+ line-height: 1.6;  
+ font-size: 16px;  
+}  
+  
+nav {  
+ position: sticky;  
+ top: 0;  
+ z-index: 100;  
+ background: rgba(255,255,255,0.95);  
+ backdrop-filter: blur(8px);  
+ border-bottom: 1px solid var(--border);  
+}  
+.nav-inner {  
+ max-width: var(--max);  
+ margin: 0 auto;  
+ padding: 0 2rem;  
+ display: flex;  
+ align-items: center;  
+ justify-content: space-between;  
+ height: 56px;  
+}  
+.nav-brand {  
+ font-family: var(--serif);  
+ font-size: 1.1rem;  
+ font-weight: 500;  
+ color: var(--text);  
+ text-decoration: none;  
+ letter-spacing: 0.01em;  
+}  
+.nav-links {  
+ display: flex;  
+ gap: 2rem;  
+ list-style: none;  
+}  
+.nav-links a {  
+ font-size: 0.8rem;  
+ letter-spacing: 0.08em;  
+ text-transform: uppercase;  
+ color: var(--mid-gray);  
+ text-decoration: none;  
+ font-weight: 500;  
+ transition: color 0.2s;  
+}  
+.nav-links a:hover { color: var(--text); }  
+  
+main {  
+ max-width: var(--max);  
+ margin: 0 auto;  
+ padding: 3.5rem 2rem 4rem;  
+}  
+  
+.kicker {  
+ font-size: 0.78rem;  
+ letter-spacing: 0.1em;  
+ text-transform: uppercase;  
+ color: var(--accent);  
+ font-weight: 500;  
+ margin-bottom: 0.9rem;  
+}  
+  
+h1.title {  
+ font-family: var(--serif);  
+ font-size: clamp(2rem, 4vw, 2.7rem);  
+ font-weight: 500;  
+ line-height: 1.2;  
+ margin-bottom: 1rem;  
+}  
+  
+.byline {  
+ font-size: 0.85rem;  
+ color: var(--mid-gray);  
+ margin-bottom: 2.5rem;  
+ padding-bottom: 2rem;  
+ border-bottom: 1px solid var(--border);  
+}  
+  
+article h2 {  
+ font-family: var(--serif);  
+ font-size: 1.5rem;  
+ font-weight: 500;  
+ margin: 2.4rem 0 1rem;  
+ color: var(--text);  
+}  
+  
+article h3 {  
+ font-family: var(--serif);  
+ font-size: 1.25rem;  
+ font-style: italic;  
+ font-weight: 500;  
+ margin: 1.8rem 0 0.8rem;  
+ color: var(--dark-gray);  
+}  
+  
+article p {  
+ font-family: var(--serif);  
+ font-size: 1.18rem;  
+ line-height: 1.75;  
+ margin-bottom: 1.1rem;  
+ color: var(--text);  
+}  
+  
+.abstract {  
+ background: var(--off-white);  
+ border-left: 3px solid var(--accent);  
+ padding: 1.3rem 1.6rem;  
+ margin: 0 0 2.5rem;  
+}  
+.abstract p {  
+ font-size: 1rem;  
+ font-family: var(--sans);  
+ line-height: 1.65;  
+ color: var(--dark-gray);  
+ margin-bottom: 0.6rem;  
+}  
+.abstract p:last-child { margin-bottom: 0; }  
+.abstract .label {  
+ font-size: 0.75rem;  
+ letter-spacing: 0.08em;  
+ text-transform: uppercase;  
+ font-weight: 500;  
+ color: var(--accent);  
+ display: block;  
+ margin-bottom: 0.4rem;  
+}  
+  
+figure {  
+ margin: 2rem 0;  
+}  
+.gallery {  
+ display: grid;  
+ grid-template-columns: 1fr 1fr;  
+ gap: 0.8rem;  
+ margin: 1.6rem 0 0.6rem;  
+}  
+.gallery img {  
+ width: 100%;  
+ height: 340px;  
+ object-fit: contain;  
+ background: var(--light-gray);  
+ border: 1px solid var(--border);  
+}  
+figcaption {  
+ font-size: 0.85rem;  
+ color: var(--mid-gray);  
+ font-style: italic;  
+ margin-top: 0.6rem;  
+ text-align: center;  
+}  
+  
+blockquote {  
+ font-family: var(--serif);  
+ font-style: italic;  
+ font-size: 1.3rem;  
+ line-height: 1.6;  
+ color: var(--dark-gray);  
+ border-left: 3px solid var(--accent);  
+ padding: 0.3rem 0 0.3rem 1.5rem;  
+ margin: 2rem 0;  
+}  
+  
+.refs {  
+ margin-top: 2.5rem;  
+ padding-top: 2rem;  
+ border-top: 1px solid var(--border);  
+}  
+.refs h2 { margin-top: 0; }  
+.refs p {  
+ font-family: var(--sans);  
+ font-size: 0.92rem;  
+ line-height: 1.6;  
+ color: var(--dark-gray);  
+ margin-bottom: 0.7rem;  
+}  
+  
+.back-link {  
+ display: inline-block;  
+ margin-top: 3rem;  
+ font-size: 0.85rem;  
+ letter-spacing: 0.04em;  
+ color: var(--accent);  
+ text-decoration: none;  
+}  
+.back-link:hover { text-decoration: underline; }  
+  
+@media (max-width: 640px) {  
+ .gallery { grid-template-columns: 1fr; }  
+ .gallery img { height: 220px; }  
+}  
+</style>  
+</head>  
+<body>  
+  
+<nav>  
+ <div class="nav-inner">  
+ <a href="index.html" class="nav-brand">Tio Santos</a>  
+ <ul class="nav-links">  
+ <li><a href="index.html#textos">Textos</a></li>  
+ <li><a href="index.html#depoimento">Depoimento</a></li>  
+ <li><a href="index.html#perfil">Perfil</a></li>  
+ </ul>  
+ </div>  
+</nav>  
+  
+<main>  
+ <p class="kicker">Ensaio</p>  
+ <h1 class="title">A imaginação ativa no processo criativo do escultor Jorge Luis Vargas Gaitán</h1>  
+ <p class="byline">tiosantos · 2013 / 2026 · derivado de monografia de especialização, Universidade Anhembi Morumbi, sob orientação da professora Silvia Anspach</p>  
+  
+ <div class="abstract">  
+ <span class="label">Resumo</span>  
+ <p>Este artigo, derivado de monografia de especialização defendida em 2013, investiga a presença da imaginação nas etapas do processo criativo, tomando como caso a produção escultórica de Jorge Luis Vargas Gaitán, artista peruano radicado em Diadema, São Paulo. O estudo mobiliza três concepções de imaginação, a reprodutora da tradição filosófica, a criadora de Gaston Bachelard e a ativa de Carl Gustav Jung, e as confronta com a análise de três obras do escultor, construída a partir de conversas realizadas em seu ateliê entre 2012 e 2013.</p>  
+ <p><span class="label" style="margin-top:0.6rem">Palavras-chave</span>imaginação; processo criativo; escultura; inconsciente coletivo; Jorge Luis Vargas Gaitán.</p>  
+ </div>  
+  
+ <article>  
+ <h2>1. Introdução</h2>  
+ <p>Este artigo, derivado de monografia de especialização defendida em 2013 na Universidade Anhembi Morumbi, sob orientação da professora Silvia Anspach, investiga a presença da imaginação nas etapas do processo criativo, tomando como caso a produção escultórica de Jorge Luis Vargas Gaitán, artista peruano formado pela Escola Superior de Belas Artes Macedônio de La Torre em Trujillo, radicado em Diadema, São Paulo, onde atua como artista e produtor cultural.</p>  
+ <p>A hipótese que orienta o estudo é a de que a imaginação não se restringe ao impulso inicial da criação. Ela antecede o ato artístico, acompanha sua realização e permanece na obra concluída, conferindo-lhe novos significados. Para examiná-la, o trabalho mobiliza três concepções de imaginação. A imaginação reprodutora da tradição filosófica, sintetizada por Marilena Chauí, serve de contraponto às duas concepções que fundamentam a análise, a imaginação criadora de Gaston Bachelard e a imaginação ativa de Carl Gustav Jung.</p>  
+ <p>Quanto ao método, trata-se de estudo de caso qualitativo, de caráter exploratório, construído a partir de visitas ao ateliê do artista e de conversas realizadas ao longo de 2012 e 2013. As conversas não foram gravadas; os relatos do artista aqui apresentados foram reconstituídos a partir de minhas anotações e de minha memória, razão pela qual aparecem sempre em discurso indireto. Reconhece-se o limite documental dessa escolha, próprio do contexto em que a pesquisa foi realizada, e delimita-se em consequência o alcance das conclusões: os achados valem para o caso estudado e não autorizam generalização. O texto final foi apresentado ao artista, que autorizou sua publicação e confirmou os dados biográficos aqui apresentados.</p>  
+ <p>O artigo se organiza em três partes. A primeira apresenta, em síntese, o instrumental teórico. A segunda analisa três obras do escultor, selecionadas por concentrarem os achados mais significativos da pesquisa. A terceira retoma a hipótese à luz do caso.</p>  
+  
+ <h2>2. Três concepções de imaginação</h2>  
+ <p>A palavra imaginação carrega uma ambiguidade antiga. No uso comum, ela tanto nomeia a capacidade inventiva que admiramos nos artistas quanto serve de acusação, quando dizemos que algo é pura imaginação, exagero, invencionice. Chauí (2000) observa que essa duplicidade não é acidente do vocabulário, mas herança de uma longa disputa filosófica sobre o que a imaginação é e o que ela vale. Este capítulo percorre três dimensões dessa disputa. A primeira é a concepção da tradição filosófica, que fez da imaginação uma serva da percepção. A segunda é a virada proposta por Gaston Bachelard, que a devolveu ao trabalho criador. A terceira é a formulação de Carl Gustav Jung, que fez dela um caminho para o inconsciente.</p>  
+  
+ <h3>2.1 A imaginação reprodutora</h3>  
+ <p>Durante séculos, a filosofia tratou a imaginação com desconfiança. Para os empiristas, as imagens mentais eram reflexos das impressões colhidas pelos sentidos, e imaginar não passava de rever, com menos nitidez, aquilo que já se havia percebido. Imagem e lembrança seriam quase a mesma coisa, distinguindo-se apenas pela posição no tempo, uma no presente, outra no passado. Os intelectualistas foram ainda mais severos. Viram na imaginação uma percepção enfraquecida, deformadora da realidade, causadora de ilusões e fonte principal de nossos erros. Por caminhos diferentes, as duas tradições chegaram ao mesmo ponto. Imaginar seria reproduzir. Tanto que, como nota Chauí (2000, p. 166), a tradição costumava usar a palavra imaginação como simples sinônimo de percepção.</p>  
+ <p>Nessa moldura, não há lugar para o novo. A imagem é rastro, vestígio, resíduo do objeto percebido retido na consciência. O imaginado depende sempre do percebido, como a cópia depende do original. É contra essa redução que se levantam as duas concepções que fundamentam este estudo.</p>  
+  
+ <h3>2.2 A imaginação criadora de Bachelard</h3>  
+ <p>Os estudiosos de Bachelard costumam dividir sua obra em duas vertentes, uma diurna e outra noturna. O Bachelard diurno é o epistemólogo, crítico do racionalismo e do empirismo científico. O noturno é o que interessa aqui, o filósofo do devaneio, da criação artística, da poética. É nessa vertente que ele constrói uma teoria da imaginação em aberto confronto com a tradição.</p>  
+ <p>Para Bachelard, o poeta verdadeiro não se contenta com uma imaginação que apenas evoca o já visto. Ele quer que a imaginação seja uma viagem, um convite ao devaneio dinâmico que põe o ser em movimento e abre uma vida imaginária com leis próprias (BACHELARD, 2001). A imagem, aqui, deixa de ser rastro da percepção para se tornar impulso, começo de caminho.</p>  
+ <p>O filósofo distingue duas imaginações. A imaginação formal opera com as formas visíveis e nasce da postura do homem como espectador, diante de um mundo que é panorama, espetáculo oferecido à contemplação ociosa. A imaginação material, ao contrário, nasce da vontade de transformar a matéria. E é nela que o trabalho do artista ganha o centro da cena. Bachelard pensa o criador como artesão, alguém que começa sua obra num devaneio da vontade (BACHELARD, 1986). A mão que trabalha conhece a pedra, a madeira, o cobre, a argila, e aprende com a resistência de cada material aquilo que a mão ociosa, que apenas acaricia o trabalho pronto, jamais saberá. A matéria, escreve ele, "resiste e cede como uma carne amante e rebelde" (BACHELARD, 2002, p. 14). Todo conhecimento da intimidade das coisas, diz ainda, é imediatamente um poema.</p>  
+ <p>Essa valorização da mão que trabalha e da matéria que responde será decisiva na análise do nosso caso. O artista estudado aqui é um escultor, e seu material de escolha é a argila, justamente a matéria que mais imediatamente cede e resiste sob os dedos.</p>  
+  
+ <h3>2.3 A imaginação ativa de Jung</h3>  
+ <p>Se Bachelard devolveu a imaginação ao trabalho criador, Jung a levou para dentro. A imaginação ativa, método que ele formulou a partir da própria experiência interior, consiste em suspender momentaneamente o juízo crítico e permitir que emoções, fantasias e imagens emerjam do inconsciente, confrontando-as como se estivessem objetivamente presentes (VON FRANZ, 1992). O processo, porém, não é devaneio à toa. O confronto exige o sujeito desperto, consciente, disposto a reagir genuinamente ao que aparece. Von Franz adverte que a mera contemplação das imagens não produz nada. É preciso entrar no processo, com compromisso ético diante do que se manifesta, sob pena de a experiência se reduzir a teatro interior sem consequência.</p>  
+ <p>Um traço distingue a imaginação ativa das demais técnicas imaginativas usadas em psicoterapia. Nela, o terapeuta não dirige. Não prescreve imagens, não interrompe, não guia. O caminho pertence ao sujeito, que deve tornar-se protagonista da própria experiência psíquica, ainda que isso signifique caminhar só e sem proteção (VON FRANZ, 1992). Esse detalhe será retomado na análise do caso, onde ele vai reaparecer de forma inesperada.</p>  
+ <p>Dois conceitos junguianos completam o instrumental desta pesquisa. O primeiro é o inconsciente coletivo, camada impessoal da psique, comum a toda a espécie humana, de onde provêm as imagens primordiais. O segundo é o arquétipo, figura que reaparece ao longo da história sempre que a imaginação criativa se expressa livremente. O arquétipo condensa o resíduo psíquico de inúmeras vivências do mesmo tipo, repetidas ao longo de gerações, como um leito de rio encravado no fundo da psique, pelo qual a vida volta a correr sempre que as circunstâncias o reativam (JUNG, 1985). O processo criativo, para Jung, consiste numa ativação inconsciente do arquétipo e em sua elaboração na obra acabada. Daí o significado social da arte. Ela traz à tona as formas de que a época mais necessita (JUNG, 1985, p. 53).</p>  
+ <p>Vale mencionar, antes de encerrar este capítulo, a posição de Jung na controvérsia com a psicanálise freudiana. Freud aproximou o artista do neurótico e leu a obra como satisfação imaginária de desejos recalcados. Jung recusou essa leitura. Para ele, a arte não é produto derivado de processo patológico, e sim expressão simbólica genuína do Self (ANSPACH, 2000). A obra não pede diagnóstico, pede compreensão de sentido. O médico investiga causas para extirpar o mal pela raiz, mas diante da obra de arte a pergunta muda de natureza. A causalidade pessoal, escreve Jung (1985, p. 46), tem tão pouco a ver com a obra quanto o solo tem a ver com a planta que dele brota. Essa distinção é o que autoriza o procedimento adotado no estudo de caso. Perguntarei pelo sentido das obras, e não por um diagnóstico do artista.</p>  
+  
+ <h2>3. O escultor e suas imagens</h2>  
+ <h3>3.1 Jorge Luis Vargas Gaitán</h3>  
+ <p>Jorge Luis Vargas Gaitán nasceu em 15 de agosto de 1963, na província de Cajabamba, no Peru. Na infância, nada indicava um futuro nas artes. Como as outras crianças, gostava de brincar com barro, e fazia tijolos em miniatura usando caixinhas de fósforo como molde. A tia era dona de uma padaria, e foi com a massa do pão que ele aprendeu a modelar seus primeiros homenzinhos e bichinhos. Aquelas figuras o impressionavam de um modo que ele mesmo, então, não sabia nomear. A vocação começou aí, na matéria mais humilde e doméstica que se pode imaginar, antes de qualquer escola.</p>  
+ <p>A formação veio depois, na Escola Superior de Belas Artes Macedônio de La Torre, em Trujillo, onde a primeira disciplina foi anatomia. O estudo anatômico marcou sua concepção de escultura. Para Vargas, toda expressão funciona à base de músculos, e é o exagero controlado da forma que transmite força, tristeza ou alegria.</p>  
+ <p>Em janeiro de 1991 chegou ao Brasil. Radicado em Diadema, São Paulo, passou a atuar como artista e produtor cultural. Seu processo de trabalho percorre três etapas. Tudo começa na modelagem, quase sempre em argila, quando a figura nasce sob os dedos e ganha expressão, gesto, tensão muscular. Da peça modelada extrai-se então um molde, em gesso, silicone ou fibra de vidro, que captura a forma e permite reproduzi-la. Por fim vem a fundição, quando a obra encontra seu corpo definitivo em resina, marmorite ou bronze. A escultura atravessa assim três matérias antes de existir, mas é na primeira que ela de fato acontece. A argila é, para Vargas, o material de maior sensibilidade e maleabilidade, aquele em que a mão pensa. Bachelard teria reconhecido nesse escultor o seu artesão, aquele que começa a obra num devaneio da vontade e aprende com a matéria que cede e resiste.</p>  
+ <p>Suas imagens nascem da observação do cotidiano. Vargas as recolhe nas ruas, guarda-as por anos e as devolve em figuras humanas, seu tema quase exclusivo. É esse intervalo entre o ver e o fazer, às vezes de décadas, que torna seu processo um caso privilegiado para o estudo da imaginação.</p>  
+  
+ <h3>3.2 Amor filial, ou a imagem que corrige o pesquisador</h3>  
+ <figure>  
+ <div class="gallery">  
+ <img src="amor-filial-1.jpg" alt="Escultura Amor filial de Jorge Vargas, vista 1">  
+ <img src="amor-filial-2.jpg" alt="Escultura Amor filial de Jorge Vargas, vista 2">  
+ </div>  
+ <figcaption>Amor filial, Jorge Luis Vargas Gaitán</figcaption>  
+ </figure>  
+ <p>A série Amor filial apresenta duas figuras masculinas em diálogo, modeladas em contornos geométricos bem marcados, uma sentada no colo da outra, em atitude de escuta e aconselhamento. Perguntado sobre as motivações da obra, Vargas interrompeu por um instante o trabalho. O que veio em seguida não foi uma explicação de ateliê, dessas que os artistas guardam prontas para visitantes, mas uma confidência. Na adolescência, contou, teve dificuldades de relacionamento com o pai. Havia na voz o ressentimento antigo de quem nunca pôde viver com ele uma relação afetiva equilibrada, de quem nunca teve com o próprio pai uma conversa aberta, sobre o que quer que fosse. Eu testemunhava, ali, o momento raro em que um homem fala daquilo que suas mãos vinham dizendo há anos.</p>  
+ <p>Diante desse relato, formulei uma hipótese e a apresentei ao artista. As figuras seriam ele próprio e seu pai, e a escultura realizaria, pela imaginação, o encontro de aconselhamento que nunca aconteceu. A resposta de Vargas me surpreendeu. Talvez, disse ele, a obra representasse ele mesmo e o próprio filho, que enfrentavam os mesmos problemas.</p>  
+ <p>Esse momento merece atenção, e não apenas pelo que ele revela da obra. O fato é que aqui eu tropecei no próprio método que estudava. Mas foi um tropeço fecundo. Ao oferecer ao artista uma interpretação pronta, fiz exatamente aquilo que a imaginação ativa desaconselha. Ela recusa a mão-guia, como vimos com Von Franz (1992), e a interpretação alheia é a mais insidiosa das interferências.</p>  
+ <blockquote>Minha hipótese, porém, foi corrigida pela realidade psíquica do artista, que se mostrou mais complexa e mais dolorosa do que a leitura biográfica linear supunha.</blockquote>  
+ <p>A obra não reparava simbolicamente o passado. Ela elaborava um padrão que se repetia. O filho que não conversou com o pai via-se agora pai que não conversava com o filho. E das mãos desse homem surgiu, ainda assim, uma imagem de entendimento e conciliação. Se a escultura é imaginação ativa em matéria, como sustenta a hipótese deste trabalho, ela funcionou aqui no sentido junguiano pleno, dando forma àquilo que a consciência ainda lutava para integrar.</p>  
+  
+ <h3>3.3 Vovó, ou o arquétipo que o artista não sabia ter esculpido</h3>  
+ <figure>  
+ <div class="gallery">  
+ <img src="vovo-1.jpg" alt="Escultura Vovó de Jorge Vargas, vista 1">  
+ <img src="vovo-2.jpg" alt="Escultura Vovó de Jorge Vargas, vista 2">  
+ </div>  
+ <figcaption>Vovó, Jorge Luis Vargas Gaitán</figcaption>  
+ </figure>  
+ <p>A escultura que Vargas chama de Vovó representa, na descrição do próprio artista, uma senhora idosa, possivelmente aposentada, descansando ao sol no centro de Cuzco. Os trajes pesados, explica ele, não indicam frio no momento retratado, mas o costume andino de tomar sol muito agasalhado, porque na altitude de Cuzco basta a sombra de uma nuvem para a temperatura despencar. A figura está sentada, curvada sobre as pernas, e seu rosto não pode ser visto.</p>  
+ <p>Até aqui, a leitura do artista. A camada seguinte é minha. Observando a forma da escultura, chamou-me a atenção sua semelhança com as múmias incas, que nos rituais funerários eram enterradas sentadas e, na maioria das vezes, curvadas sobre as pernas. A pesquisa que se seguiu a essa observação trouxe um dado a mais. As Virgens do Sol, mulheres escolhidas por linhagem e beleza para serem educadas nos conventos de Cuzco, teciam roupas de lã de vicunha para o deus Sol e, quando envelheciam, podiam escolher entre morrer no convento ou voltar à cidade natal. A velha senhora de Vargas, sentada ao sol de Cuzco, admite ser lida como eco dessas figuras, a múmia ritual e a tecelã do Sol envelhecida.</p>  
+ <p>O próprio artista nunca mencionou essas imagens, e seria imprudente afirmar que elas participaram conscientemente da criação. Mas é justamente esse silêncio que torna o caso interessante para a leitura junguiana. O que Jung (1985) permite pensar é que a coincidência formal entre a escultura e as imagens funerárias andinas é o tipo de fenômeno que a noção de inconsciente coletivo torna pensável. O arquétipo, leito de rio encravado no fundo da psique, não precisa ser conhecido para ser percorrido. Vargas, peruano de Cajabamba, esculpiu uma anciã de Cuzco na postura exata das múmias de seus ancestrais. A hipótese arquetípica não é a única leitura possível. Mas entre chamar de acaso o encontro da anciã com suas ancestrais e reconhecer nele o rio antigo voltando a correr no mesmo leito, este trabalho escolhe o rio.</p>  
+  
+ <h3>3.4 Cristo, ou a imaginação contra o modelo</h3>  
+ <figure>  
+ <div class="gallery">  
+ <img src="cristo-1.jpg" alt="Escultura Cristo de Jorge Vargas, vista 1">  
+ <img src="cristo-2.jpg" alt="Escultura Cristo de Jorge Vargas, vista 2">  
+ </div>  
+ <figcaption>Cristo, Jorge Luis Vargas Gaitán</figcaption>  
+ </figure>  
+ <p>A representação do Cristo é talvez o exemplo mais nítido, no conjunto estudado, da imaginação operando contra o modelo recebido. A iconografia tradicional apresenta Jesus com os braços fixados na cruz. O Cristo de Vargas se solta. Na concepção do artista, ele se esforça para libertar-se dos pregos, em posição de revolta e angústia, preso quando quer estar entre os homens. Vargas sugere um Cristo que deseja renunciar ao próprio destino.</p>  
+ <p>As motivações da obra, segundo o artista, remontam à sua infância e adolescência, período de crises na afirmação de sua individualidade e de sua fé. A imagem herdada, memorizada em milhares de reproduções, era matéria-prima da imaginação reprodutora. O gesto de Vargas foi submetê-la à imaginação criadora, no sentido preciso de Bachelard, a vontade transformando a matéria e, com ela, o próprio símbolo. Pode-se ler nesse Cristo insubmisso, e a leitura agora é minha, a projeção dos dilemas do jovem que o esculpiu, suas dúvidas e desejos diante de um destino que parecia traçado. Anspach (1998) lembra que a condição humana se inaugura numa expulsão, e que a inquietação diante desse destino assombra toda a humanidade. O Cristo que tenta descer da cruz dá forma escultórica a essa inquietação. Não nega a fé, mas a interroga, e nisso cumpre o que Jung atribui à obra de arte, trazer à tona as formas de que a época, e o sujeito, mais necessitam.</p>  
+  
+ <h2>4. Considerações finais</h2>  
+ <p>Este artigo partiu de uma hipótese, a de que a imaginação não se restringe ao impulso inicial da criação, mas se faz presente em todas as etapas do processo criativo. O caso estudado ofereceu a essa hipótese um respaldo consistente, e é preciso dizer em que medida.</p>  
+ <p>Nas obras de Jorge Vargas, a imaginação se fez presente em todas as etapas. Antes do ato artístico, no longo intervalo em que as imagens recolhidas nas ruas do Peru e do Brasil amadureceram em silêncio até pedirem forma. Durante a realização, na mão que pensa a argila, no devaneio da vontade que Bachelard reconheceria de imediato nesse escultor de figuras humanas. E ainda depois da obra pronta, conferindo-lhe significados que o próprio artista não havia previsto, como mostrou a anciã de Cuzco, sentada na postura exata de ancestrais que ninguém a mandou lembrar. Em Amor filial, a escultura funcionou como imaginação ativa em matéria, dando forma de conciliação àquilo que a consciência ainda lutava para integrar. No Cristo que se solta da cruz, a imaginação criadora trabalhou contra o modelo recebido, transformando a imagem herdada em interrogação.</p>  
+ <p>Este é um estudo de caso único, e essa foi uma escolha, não uma limitação sofrida. Abrir mão da amplitude foi o preço de acompanhar de perto um único processo criativo, do começo ao fim, com a atenção que a imaginação exige de quem a estuda. O que se ganhou em troca foi a certeza possível dentro desse recorte. No percurso de Jorge Vargas, a imaginação se mostrou presente em todas as etapas da criação, e as concepções de Bachelard e Jung se revelaram instrumentos fecundos para compreendê-la. É desse caso, e apenas dele, que este trabalho fala, com a convicção de quem esteve lá. Se o mesmo vale para outros artistas e outros processos, eis uma pergunta que deixo aberta, como convite, aos estudos que vierem.</p>  
+ <p>Resta uma última palavra, que já não é de análise. Depois de acompanhar de perto o trabalho de um escultor, aprendi que o tempo da imaginação não é um só. Ela é passado, quando mergulha no fundo comum da psique e traz de lá o conhecimento, o medo e a fúria dos ancestrais. É presente, quando no instante apreende e recria a realidade, constrói e desconstrói a ideia, refaz eternamente a imagem. E é futuro, quando se projeta na busca de uma expressão ainda sem nome, abrindo caminho para o encontro de uma imagem totalmente nova. A imaginação nos impulsiona para o que ainda não existe, trazendo à tona a essência mais funda da alma de todos os homens e mulheres. Foi isso que vi nascer, tantas vezes, sob as mãos de Jorge Vargas.</p>  
+  
+ <div class="refs">  
+ <h2>Referências</h2>  
+ <p>ANSPACH, Sílvia. <em>Entre Babel e o Éden: criação, mito e cultura.</em> São Paulo: Annablume, 1998.</p>  
+ <p>ANSPACH, Sílvia. <em>Arte, cura, loucura: uma trajetória rumo à identidade individuada.</em> São Paulo: Annablume, 2000.</p>  
+ <p>BACHELARD, Gaston. <em>O direito de sonhar.</em> Tradução de José Américo Motta Pessanha et al. 2. ed. São Paulo: Difel, 1986.</p>  
+ <p>BACHELARD, Gaston. <em>O ar e os sonhos: ensaio sobre a imaginação do movimento.</em> 2. ed. São Paulo: Martins Fontes, 2001.</p>  
+ <p>BACHELARD, Gaston. <em>A terra e os devaneios da vontade: ensaio sobre a imaginação das forças.</em> Tradução de Maria Ermantina Galvão. São Paulo: Martins Fontes, 2002.</p>  
+ <p>CHAUÍ, Marilena. <em>Convite à filosofia.</em> São Paulo: Ática, 2000.</p>  
+ <p>JUNG, Carl Gustav. <em>O espírito na arte e na ciência.</em> Petrópolis: Vozes, 1985.</p>  
+ <p>VON FRANZ, Marie-Louise. <em>C. G. Jung: seu mito em nossa época.</em> São Paulo: Cultrix, 1992.</p>  
+ </div>  
+  
+ <a href="index.html#textos" class="back-link">&larr; Voltar para Textos</a>  
+ </article>  
+</main>  
+  
+</body>  
+</html>
