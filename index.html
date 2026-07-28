@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Valdemir de Oliveira Gomes — Tio Santos | Gestor Cultural, Poeta e Cronista</title>
-  <link rel="canonical" href="https://tiosantos-escritos.pages.dev/">
+  <link rel="canonical" href="https://tiosantos.pages.dev/">
   <meta name="description" content="Gestor cultural com mais de 35 anos de atuação em Diadema/SP. Parecerista credenciado, poeta, compositor e cronista. Textos, música e trajetória de Valdemir de Oliveira Gomes.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -761,17 +761,17 @@
   </style>
   <!-- Open Graph -->
   <meta property="og:type" content="profile" />
-  <meta property="og:url" content="https://tiosantos-escritos.pages.dev/" />
+  <meta property="og:url" content="https://tiosantos.pages.dev/" />
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:title" content="Valdemir de Oliveira Gomes — Tio Santos" />
   <meta property="og:description" content="Poeta, compositor e cronista. Textos, músicas e reflexões sobre cultura, memória e identidade." />
-  <meta property="og:image" content="https://tiosantos-escritos.pages.dev/tiosantos.jpg" />
+  <meta property="og:image" content="https://tiosantos.pages.dev/tiosantos.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Valdemir de Oliveira Gomes — Tio Santos" />
   <meta name="twitter:description" content="Poeta, compositor e cronista. Textos, músicas e reflexões sobre cultura, memória e identidade." />
-  <meta name="twitter:image" content="https://tiosantos-escritos.pages.dev/tiosantos.jpg" />
+  <meta name="twitter:image" content="https://tiosantos.pages.dev/tiosantos.jpg" />
 </head>
 <body>
 
@@ -1231,7 +1231,7 @@ medíocre estrutura</p>
           'card-celula':  'Leia "Célula", de tiosantos',
           'card-juan':    'Leia a apresentação de Juan Carlos Rodriguez Latorre, de tiosantos'
         };
-        var _siteUrl = 'https://tiosantos-escritos.pages.dev';
+        var _siteUrl = 'https://tiosantos.pages.dev';
         function shareWA(cardId) {
           var msg = _shareTexts[cardId] + ': ' + _siteUrl;
           window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(msg), '_blank');
@@ -1509,7 +1509,7 @@ medíocre estrutura</p>
           const id = 'micro-' + i;
           const ancId = item.id;
           const dataFmt = new Date(item.data + 'T12:00:00').toLocaleDateString('pt-BR', {day: '2-digit', month: 'long', year: 'numeric'});
-          const linkDireto = 'https://tiosantos-escritos.pages.dev/#' + ancId;
+          const linkDireto = 'https://tiosantos.pages.dev/#' + ancId;
           const card = document.createElement('div');
           card.className = 'card micro-card';
           card.id = ancId;
@@ -1553,14 +1553,14 @@ medíocre estrutura</p>
       });
 
     function shareWAMicro(resumo, ancId) {
-      const link = 'https://tiosantos-escritos.pages.dev/textos/' + ancId + '.html';
+      const link = 'https://tiosantos.pages.dev/textos/' + ancId + '.html';
       const texto = resumo + '\n\nLeia o texto completo em ' + link;
       const url = 'https://wa.me/?text=' + encodeURIComponent(texto);
       window.open(url, '_blank');
     }
 
     function copiarLink(ancId) {
-      const link = 'https://tiosantos-escritos.pages.dev/textos/' + ancId + '.html';
+      const link = 'https://tiosantos.pages.dev/textos/' + ancId + '.html';
       navigator.clipboard.writeText(link).then(() => {
         alert('Link copiado: ' + link);
       });
