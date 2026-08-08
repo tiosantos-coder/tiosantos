@@ -162,6 +162,13 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       font-family: var(--sans);
     }}
     footer a {{ color: var(--accent); text-decoration: none; }}
+    .micro-imagem {{
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto 1.5rem;
+      display: block;
+      border-radius: 4px;
+    }}
   </style>
 </head>
 <body>
@@ -172,6 +179,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <p class="micro-tipo">{tipo_esc}</p>
     <p class="micro-data">{data_fmt}</p>
     <h1>{titulo_esc}</h1>
+{imagem_html}
     <div class="micro-texto">
 {paragrafos}
     </div>
@@ -217,7 +225,15 @@ def gerar_pagina(item: dict) -> str:
     tipo_esc = html.escape(item["tipo"])
     data_fmt = formatar_data(item["data"])
     url_pagina = f"{SITE_URL}/textos/{item['id']}.html"
-    imagem_card = f"{SITE_URL}/tiosantos.jpg"  # imagem padrão até haver card individual
+
+    imagem_item = item.get("imagem")  # caminho relativo opcional, ex: "/textos/img/arquivo.jpg"
+    if imagem_item:
+        imagem_card = f"{SITE_URL}{imagem_item}"
+        alt_esc = html.escape(item.get("imagem_alt", item["titulo"]))
+        imagem_html = f'    <img class="micro-imagem" src="{imagem_item}" alt="{alt_esc}">'
+    else:
+        imagem_card = f"{SITE_URL}/tiosantos.jpg"  # imagem padrão até haver card individual
+        imagem_html = ""
     whatsapp_texto = html.escape(
         f"{item['resumo']}\n\nLeia o texto completo em {url_pagina}",
         quote=True
@@ -237,6 +253,7 @@ def gerar_pagina(item: dict) -> str:
         data_iso=item["data"],
         url_pagina=url_pagina,
         imagem_card=imagem_card,
+        imagem_html=imagem_html,
         paragrafos=montar_paragrafos(item["texto"]),
         site_url=SITE_URL,
         whatsapp_texto=whatsapp_texto,

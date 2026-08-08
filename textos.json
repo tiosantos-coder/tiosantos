@@ -1,6 +1,16 @@
 {
   "microtextos": [
     {
+      "id": "a-odisseia-e-a-tragedia-do-bolsonaro",
+      "data": "2026-08-08",
+      "titulo": "A Odisseia e a tragédia do Bolsonaro",
+      "tipo": "Comentário cultural",
+      "resumo": "O que o filme de Nolan sobre a Odisseia tem a dizer sobre trapaceiros, heróis e o Brasil que ainda confunde crueldade com força.",
+      "imagem": "/textos/img/odisseia.jpg",
+      "imagem_alt": "A Odisseia e a tragédia do Bolsonaro",
+      "texto": "Lendo uma matéria sobre o filme \"A Odisseia\" de Christopher Nolan, que retoma um texto de Ezra Klein fazendo uma crítica direta ao governo Trump, pensei no Brasil e em como Odisseu arma o Cavalo de Troia, aquilo foi heroísmo ou crime? Na ética antiga, vencer por qualquer meio era uma virtude. Hoje essa estratégia pesa como uma culpa que precisa ser reparada, não comemorada. Entre uma época e outra mudou o que chamamos de civilização e mudou também o que chamamos de herói e o que chamamos de trapaceiro. O trapaceiro mítico dança sobre os costumes, diz o que não pode ser dito, faz o que não deve ser feito. Esse gesto pode libertar ou destruir. Ninguém sabe de antemão se ele vai deixar fogo para aquecer ou apenas ruínas para trás. Chamaram Bolsonaro de mito antes de saberem o que diziam. Bolsonaro não inventou a crueldade brasileira, ele apenas parou de escondê-la. Riu do sofrimento indígena, riu da fome, riu da vacina, riu do próprio povo que dizia defender. Fez da desonra uma política pública.\n\nContra essa lógica, existe a lei de Zeus que manda tratar bem o estrangeiro porque ele pode ser um deus disfarçado. Não é generosidade, é cautela diante do que você não conhece. O oposto disso é achar que a força justifica tudo, que o fraco existe para ser usado. Essa foi a lógica que passou a governar o Brasil por quatro anos, e que ainda governa parte dele.\n\nOdisseu volta para casa e encontra Ítaca tomada por homens que confundiram vontade com direito. O Brasil também está tentando voltar para casa. A questão não é apenas vencer o mito. É lembrar que hospitalidade, decência, cuidado com quem está mais fraco nunca foram fraqueza. Sempre foram o que segura uma civilização de pé."
+    },
+    {
       "id": "da-pra-ouvir-anitta",
       "data": "2026-07-25",
       "titulo": "Dá pra ouvir Anitta?",
