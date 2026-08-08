@@ -226,9 +226,10 @@ def gerar_pagina(item: dict) -> str:
     data_fmt = formatar_data(item["data"])
     url_pagina = f"{SITE_URL}/textos/{item['id']}.html"
 
-    imagem_item = item.get("imagem")  # caminho relativo opcional, ex: "/textos/img/arquivo.jpg"
+    imagem_item = item.get("imagem")  # caminho relativo opcional, ex: "/odisseia.jpg"
+    imagem_card_item = item.get("imagem_card")  # versão 1200x630 opcional para preview social
     if imagem_item:
-        imagem_card = f"{SITE_URL}{imagem_item}"
+        imagem_card = f"{SITE_URL}{imagem_card_item}" if imagem_card_item else f"{SITE_URL}{imagem_item}"
         alt_esc = html.escape(item.get("imagem_alt", item["titulo"]))
         imagem_html = f'    <img class="micro-imagem" src="{imagem_item}" alt="{alt_esc}">'
     else:
