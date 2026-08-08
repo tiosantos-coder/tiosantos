@@ -43,7 +43,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:url" content="{url_pagina}" />
-  <meta property="og:title" content="{titulo_esc} — Tio Santos" />
+  <meta property="og:title" content="{titulo_esc}" />
+  <meta property="og:site_name" content="★ tiosantos" />
   <meta property="og:description" content="{descricao_esc}" />
   <meta property="og:image" content="{imagem_card}" />
   <meta property="og:image:width" content="1200" />
@@ -52,7 +53,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <meta property="article:published_time" content="{data_iso}" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{titulo_esc} — Tio Santos" />
+  <meta name="twitter:title" content="{titulo_esc}" />
   <meta name="twitter:description" content="{descricao_esc}" />
   <meta name="twitter:image" content="{imagem_card}" />
 
@@ -235,16 +236,11 @@ def gerar_pagina(item: dict) -> str:
     else:
         imagem_card = f"{SITE_URL}/tiosantos.jpg"  # imagem padrão até haver card individual
         imagem_html = ""
-    whatsapp_texto = html.escape(
-        f"{item['resumo']}\n\nLeia o texto completo em {url_pagina}",
-        quote=True
-    ).replace("&amp;", "%26").replace("\n", "%0A").replace(" ", "%20")
-
-    # encode simples e seguro para query string (evita depender de urllib aqui)
+    # Só o link: o WhatsApp já monta título, resumo e imagem a partir do
+    # og:title / og:description / og:image da própria página, então incluir
+    # o resumo aqui de novo duplicava a informação na mensagem.
     import urllib.parse
-    whatsapp_texto = urllib.parse.quote(
-        f"{item['resumo']}\n\nLeia o texto completo em {url_pagina}"
-    )
+    whatsapp_texto = urllib.parse.quote(url_pagina)
 
     return PAGE_TEMPLATE.format(
         titulo_esc=titulo_esc,
