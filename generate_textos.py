@@ -18,6 +18,7 @@ Rodar de novo sempre que textos.json mudar (novo microtexto adicionado).
 import json
 import re
 import html
+from datetime import date
 from pathlib import Path
 
 BASE_DIR = Path(__file__).parent
@@ -35,6 +36,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <title>{titulo_esc} — Tio Santos</title>
   <meta name="description" content="{descricao_esc}">
   <link rel="canonical" href="{url_pagina}">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +64,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     :root {{
       --white: #ffffff;
       --off-white: #f7f5f0;
-      --mid-gray: #999;
+      --mid-gray: #666;
       --dark-gray: #444;
       --text: #1a1a1a;
       --accent: #2c5f8a;
@@ -151,8 +153,52 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       font-weight: 500;
       text-decoration: none;
       color: #fff;
-      background: #25D366;
+      background: #087a35;
     }}
+    .comment-form {{
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+    }}
+    .comment-heading {{
+      margin-bottom: 0.8rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dark-gray);
+    }}
+    .comment-field-label {{
+      display: block;
+      margin: 0.4rem 0 0.25rem;
+      font-size: 0.8rem;
+      color: var(--dark-gray);
+    }}
+    .comment-input,
+    .comment-textarea {{
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--off-white);
+      color: var(--text);
+      font: inherit;
+    }}
+    .comment-textarea {{ min-height: 110px; resize: vertical; }}
+    .comment-submit {{
+      margin-top: 0.7rem;
+      padding: 0.65rem 1rem;
+      border: 0;
+      border-radius: 4px;
+      background: var(--accent);
+      color: var(--white);
+      font: inherit;
+      font-weight: 500;
+      cursor: pointer;
+    }}
+    .comment-submit:disabled {{ opacity: 0.65; cursor: wait; }}
+    .comment-success {{ margin-top: 0.7rem; color: var(--accent); }}
+    :focus-visible {{ outline: 3px solid var(--accent); outline-offset: 3px; }}
     footer {{
       background: var(--off-white);
       border-top: 1px solid var(--border);
@@ -192,11 +238,48 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         Compartilhar no WhatsApp
       </a>
     </div>
+
+    <section class="comment-form" aria-labelledby="comment-heading">
+      <p class="comment-heading" id="comment-heading">Envie seu comentário</p>
+      <form action="https://formspree.io/f/xeeyekeb" method="POST" onsubmit="submitComment(event, this)">
+        <input type="hidden" name="texto" value="{titulo_esc}">
+        <label class="comment-field-label" for="comment-nome">Seu nome (opcional)</label>
+        <input class="comment-input" id="comment-nome" type="text" name="nome" autocomplete="name">
+        <label class="comment-field-label" for="comment-mensagem">Comentário</label>
+        <textarea class="comment-textarea" id="comment-mensagem" name="mensagem" required></textarea>
+        <button class="comment-submit" type="submit">Enviar comentário</button>
+      </form>
+      <p class="comment-success" role="status" aria-live="polite" hidden>Comentário enviado. Obrigado!</p>
+    </section>
   </main>
 
   <footer>
     <p>Valdemir de Oliveira Gomes — Tio Santos · <a href="{site_url}/">ver todos os textos</a></p>
   </footer>
+  <script>
+    function submitComment(event, form) {{
+      event.preventDefault();
+      var button = form.querySelector('.comment-submit');
+      var status = form.nextElementSibling;
+      button.disabled = true;
+      button.textContent = 'Enviando…';
+      fetch(form.action, {{
+        method: 'POST',
+        body: new FormData(form),
+        headers: {{ 'Accept': 'application/json' }}
+      }}).then(function(response) {{
+        if (!response.ok) throw new Error('Falha no envio');
+        form.reset();
+        form.hidden = true;
+        status.hidden = false;
+      }}).catch(function() {{
+        button.disabled = false;
+        button.textContent = 'Enviar comentário';
+        status.textContent = 'Não foi possível enviar agora. Tente novamente.';
+        status.hidden = false;
+      }});
+    }}
+  </script>
 </body>
 </html>
 """
@@ -232,7 +315,7 @@ def gerar_pagina(item: dict) -> str:
     if imagem_item:
         imagem_card = f"{SITE_URL}{imagem_card_item}" if imagem_card_item else f"{SITE_URL}{imagem_item}"
         alt_esc = html.escape(item.get("imagem_alt", item["titulo"]))
-        imagem_html = f'    <img class="micro-imagem" src="{imagem_item}" alt="{alt_esc}">'
+        imagem_html = f'    <img class="micro-imagem" src="{imagem_item}" alt="{alt_esc}" loading="lazy" decoding="async">'
     else:
         imagem_card = f"{SITE_URL}/tiosantos.jpg"  # imagem padrão até haver card individual
         imagem_html = ""
@@ -352,6 +435,29 @@ def atualizar_index(index_content: str) -> str:
     return index_content
 
 
+def gerar_sitemap(microtextos: list[dict]) -> str:
+    """Gera o sitemap do acervo, incluindo automaticamente novos microtextos."""
+    urls = [
+        (f"{SITE_URL}/", date.today().isoformat()),
+        (f"{SITE_URL}/ensaio-jorge-vargas.html", date.today().isoformat()),
+    ]
+    urls.extend(
+        (f"{SITE_URL}/textos/{item['id']}.html", item["data"])
+        for item in microtextos
+    )
+    linhas = ['<?xml version="1.0" encoding="UTF-8"?>',
+              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for url, ultima_modificacao in urls:
+        linhas.extend([
+            "  <url>",
+            f"    <loc>{html.escape(url)}</loc>",
+            f"    <lastmod>{ultima_modificacao}</lastmod>",
+            "  </url>",
+        ])
+    linhas.append("</urlset>")
+    return "\n".join(linhas) + "\n"
+
+
 def main():
     with open(BASE_DIR / "textos.json", encoding="utf-8") as f:
         data = json.load(f)
@@ -372,6 +478,11 @@ def main():
     index_atualizado = atualizar_index(index_content)
     (BASE_DIR / "index.html").write_text(index_atualizado, encoding="utf-8")
     print("Atualizado: index.html (metadados + funções de compartilhamento)")
+
+    (BASE_DIR / "sitemap.xml").write_text(
+        gerar_sitemap(data["microtextos"]), encoding="utf-8"
+    )
+    print("Atualizado: sitemap.xml")
 
     print(f"\nTotal de páginas geradas: {len(gerados)}")
 

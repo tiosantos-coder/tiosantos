@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tiosantos.pages.dev/sitemap.xml

@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  
 <title>A Imaginação Ativa no Processo Criativo do Escultor Jorge Luis Vargas Gaitán — Tio Santos</title>  
 <meta name="description" content="Ensaio de tiosantos sobre a imaginação no processo criativo do escultor peruano Jorge Luis Vargas Gaitán, radicado em Diadema.">  
+<link rel="canonical" href="https://tiosantos.pages.dev/ensaio-jorge-vargas.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tiosantos.pages.dev/ensaio-jorge-vargas.html">
+<meta property="og:title" content="A imaginação ativa no processo criativo do escultor Jorge Luis Vargas Gaitán">
+<meta property="og:description" content="Ensaio de Tio Santos sobre a imaginação no processo criativo do escultor peruano Jorge Luis Vargas Gaitán.">
+<meta property="og:image" content="https://tiosantos.pages.dev/tiosantos.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">  
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">  
@@ -15,7 +24,7 @@
  --white: #ffffff;  
  --off-white: #f7f5f0;  
  --light-gray: #ebebeb;  
- --mid-gray: #999;  
+ --mid-gray: #666;  
  --dark-gray: #444;  
  --text: #1a1a1a;  
  --accent: #2c5f8a;  
@@ -215,6 +224,50 @@ blockquote {
  text-decoration: none;  
 }  
 .back-link:hover { text-decoration: underline; }  
+
+.comment-form {
+ margin-top: 3rem;
+ padding-top: 2rem;
+ border-top: 1px solid var(--border);
+}
+.comment-heading {
+ font-size: 0.8rem;
+ font-weight: 500;
+ letter-spacing: 0.08em;
+ text-transform: uppercase;
+ color: var(--dark-gray);
+ margin-bottom: 0.8rem;
+}
+.comment-field-label {
+ display: block;
+ margin: 0.4rem 0 0.25rem;
+ font-size: 0.8rem;
+ color: var(--dark-gray);
+}
+.comment-input, .comment-textarea {
+ width: 100%;
+ padding: 0.65rem 0.75rem;
+ border: 1px solid var(--border);
+ border-radius: 4px;
+ background: var(--off-white);
+ color: var(--text);
+ font: inherit;
+}
+.comment-textarea { min-height: 110px; resize: vertical; }
+.comment-submit {
+ margin-top: 0.7rem;
+ padding: 0.65rem 1rem;
+ border: 0;
+ border-radius: 4px;
+ background: var(--accent);
+ color: var(--white);
+ font: inherit;
+ font-weight: 500;
+ cursor: pointer;
+}
+.comment-submit:disabled { opacity: 0.65; cursor: wait; }
+.comment-success { margin-top: 0.7rem; color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
   
 @media (max-width: 640px) {  
  .gallery { grid-template-columns: 1fr; }  
@@ -282,8 +335,8 @@ blockquote {
  <h3>3.2 Amor filial, ou a imagem que corrige o pesquisador</h3>  
  <figure>  
  <div class="gallery">  
- <img src="amor-filial-1.jpg" alt="Escultura Amor filial de Jorge Vargas, vista 1">  
- <img src="amor-filial-2.jpg" alt="Escultura Amor filial de Jorge Vargas, vista 2">  
+ <img src="amor-filial-1.jpg" alt="Escultura Amor filial de Jorge Vargas, vista 1" loading="lazy" decoding="async">  
+ <img src="amor-filial-2.jpg" alt="Escultura Amor filial de Jorge Vargas, vista 2" loading="lazy" decoding="async">  
  </div>  
  <figcaption>Amor filial, Jorge Luis Vargas Gaitán</figcaption>  
  </figure>  
@@ -296,8 +349,8 @@ blockquote {
  <h3>3.3 Vovó, ou o arquétipo que o artista não sabia ter esculpido</h3>  
  <figure>  
  <div class="gallery">  
- <img src="vovo-1.jpg" alt="Escultura Vovó de Jorge Vargas, vista 1">  
- <img src="vovo-2.jpg" alt="Escultura Vovó de Jorge Vargas, vista 2">  
+ <img src="vovo-1.jpg" alt="Escultura Vovó de Jorge Vargas, vista 1" loading="lazy" decoding="async">  
+ <img src="vovo-2.jpg" alt="Escultura Vovó de Jorge Vargas, vista 2" loading="lazy" decoding="async">  
  </div>  
  <figcaption>Vovó, Jorge Luis Vargas Gaitán</figcaption>  
  </figure>  
@@ -308,8 +361,8 @@ blockquote {
  <h3>3.4 Cristo, ou a imaginação contra o modelo</h3>  
  <figure>  
  <div class="gallery">  
- <img src="cristo-1.jpg" alt="Escultura Cristo de Jorge Vargas, vista 1">  
- <img src="cristo-2.jpg" alt="Escultura Cristo de Jorge Vargas, vista 2">  
+ <img src="cristo-1.jpg" alt="Escultura Cristo de Jorge Vargas, vista 1" loading="lazy" decoding="async">  
+ <img src="cristo-2.jpg" alt="Escultura Cristo de Jorge Vargas, vista 2" loading="lazy" decoding="async">  
  </div>  
  <figcaption>Cristo, Jorge Luis Vargas Gaitán</figcaption>  
  </figure>  
@@ -333,10 +386,48 @@ blockquote {
  <p>JUNG, Carl Gustav. <em>O espírito na arte e na ciência.</em> Petrópolis: Vozes, 1985.</p>  
  <p>VON FRANZ, Marie-Louise. <em>C. G. Jung: seu mito em nossa época.</em> São Paulo: Cultrix, 1992.</p>  
  </div>  
+
+ <section class="comment-form" aria-labelledby="comment-heading">
+  <p class="comment-heading" id="comment-heading">Envie seu comentário</p>
+  <form action="https://formspree.io/f/xeeyekeb" method="POST" onsubmit="submitComment(event, this)">
+   <input type="hidden" name="texto" value="A imaginação ativa no processo criativo do escultor Jorge Luis Vargas Gaitán">
+   <label class="comment-field-label" for="comment-nome">Seu nome (opcional)</label>
+   <input class="comment-input" id="comment-nome" type="text" name="nome" autocomplete="name">
+   <label class="comment-field-label" for="comment-mensagem">Comentário</label>
+   <textarea class="comment-textarea" id="comment-mensagem" name="mensagem" required></textarea>
+   <button class="comment-submit" type="submit">Enviar comentário</button>
+  </form>
+  <p class="comment-success" role="status" aria-live="polite" hidden>Comentário enviado. Obrigado!</p>
+ </section>
   
  <a href="index.html#textos" class="back-link">&larr; Voltar para Textos</a>  
  </article>  
 </main>  
+
+<script>
+ function submitComment(event, form) {
+  event.preventDefault();
+  var button = form.querySelector('.comment-submit');
+  var status = form.nextElementSibling;
+  button.disabled = true;
+  button.textContent = 'Enviando…';
+  fetch(form.action, {
+   method: 'POST',
+   body: new FormData(form),
+   headers: { 'Accept': 'application/json' }
+  }).then(function(response) {
+   if (!response.ok) throw new Error('Falha no envio');
+   form.reset();
+   form.hidden = true;
+   status.hidden = false;
+  }).catch(function() {
+   button.disabled = false;
+   button.textContent = 'Enviar comentário';
+   status.textContent = 'Não foi possível enviar agora. Tente novamente.';
+   status.hidden = false;
+  });
+ }
+</script>
   
 </body>  
 </html>
