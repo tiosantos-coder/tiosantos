@@ -6,6 +6,7 @@
   <title>A Odisseia e a tragédia Bolsonaro — Tio Santos</title>
   <meta name="description" content="O que o filme de Christopher Nolan sobre a Odisseia tem a dizer sobre trapaceiros, heróis e o Brasil que ainda confunde crueldade com força.">
   <link rel="canonical" href="https://tiosantos.pages.dev/textos/a-odisseia-e-a-tragedia-bolsonaro.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,7 +34,7 @@
     :root {
       --white: #ffffff;
       --off-white: #f7f5f0;
-      --mid-gray: #999;
+      --mid-gray: #666;
       --dark-gray: #444;
       --text: #1a1a1a;
       --accent: #2c5f8a;
@@ -122,8 +123,52 @@
       font-weight: 500;
       text-decoration: none;
       color: #fff;
-      background: #25D366;
+      background: #087a35;
     }
+    .comment-form {
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+    }
+    .comment-heading {
+      margin-bottom: 0.8rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dark-gray);
+    }
+    .comment-field-label {
+      display: block;
+      margin: 0.4rem 0 0.25rem;
+      font-size: 0.8rem;
+      color: var(--dark-gray);
+    }
+    .comment-input,
+    .comment-textarea {
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--off-white);
+      color: var(--text);
+      font: inherit;
+    }
+    .comment-textarea { min-height: 110px; resize: vertical; }
+    .comment-submit {
+      margin-top: 0.7rem;
+      padding: 0.65rem 1rem;
+      border: 0;
+      border-radius: 4px;
+      background: var(--accent);
+      color: var(--white);
+      font: inherit;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .comment-submit:disabled { opacity: 0.65; cursor: wait; }
+    .comment-success { margin-top: 0.7rem; color: var(--accent); }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
     footer {
       background: var(--off-white);
       border-top: 1px solid var(--border);
@@ -151,7 +196,7 @@
     <p class="micro-tipo">Comentário cultural</p>
     <p class="micro-data">08 de agosto de 2026</p>
     <h1>A Odisseia e a tragédia Bolsonaro</h1>
-    <img class="micro-imagem" src="/odisseia.jpg" alt="A Odisseia e a tragédia Bolsonaro">
+    <img class="micro-imagem" src="/odisseia.jpg" alt="A Odisseia e a tragédia Bolsonaro" loading="lazy" decoding="async">
     <div class="micro-texto">
       <p>Lendo uma matéria sobre o filme &quot;A Odisseia&quot; de Christopher Nolan, que retoma um texto de Ezra Klein fazendo uma crítica direta ao governo Trump, pensei no Brasil e em como Odisseu arma o Cavalo de Troia, aquilo foi heroísmo ou crime? Na ética antiga, vencer por qualquer meio era uma virtude. Hoje essa estratégia pesa como uma culpa que precisa ser reparada, não comemorada. Entre uma época e outra mudou o que chamamos de civilização e mudou também o que chamamos de herói e o que chamamos de trapaceiro. O trapaceiro mítico dança sobre os costumes, diz o que não pode ser dito, faz o que não deve ser feito. Esse gesto pode libertar ou destruir. Ninguém sabe de antemão se ele vai deixar fogo para aquecer ou apenas ruínas para trás. Chamaram Bolsonaro de mito antes de saberem o que diziam. Bolsonaro não inventou a crueldade brasileira, ele apenas parou de escondê-la. Riu do sofrimento indígena, riu da fome, riu da vacina, riu do próprio povo que dizia defender. Fez da desonra uma política pública.</p>
       <p>Contra essa lógica, existe a lei de Zeus que manda tratar bem o estrangeiro porque ele pode ser um deus disfarçado. Não é generosidade, é cautela diante do que você não conhece. O oposto disso é achar que a força justifica tudo, que o fraco existe para ser usado. Essa foi a lógica que passou a governar o Brasil por quatro anos, e que ainda governa parte dele.</p>
@@ -165,10 +210,47 @@
         Compartilhar no WhatsApp
       </a>
     </div>
+
+    <section class="comment-form" aria-labelledby="comment-heading">
+      <p class="comment-heading" id="comment-heading">Envie seu comentário</p>
+      <form action="https://formspree.io/f/xeeyekeb" method="POST" onsubmit="submitComment(event, this)">
+        <input type="hidden" name="texto" value="A Odisseia e a tragédia Bolsonaro">
+        <label class="comment-field-label" for="comment-nome">Seu nome (opcional)</label>
+        <input class="comment-input" id="comment-nome" type="text" name="nome" autocomplete="name">
+        <label class="comment-field-label" for="comment-mensagem">Comentário</label>
+        <textarea class="comment-textarea" id="comment-mensagem" name="mensagem" required></textarea>
+        <button class="comment-submit" type="submit">Enviar comentário</button>
+      </form>
+      <p class="comment-success" role="status" aria-live="polite" hidden>Comentário enviado. Obrigado!</p>
+    </section>
   </main>
 
   <footer>
     <p>Valdemir de Oliveira Gomes — Tio Santos · <a href="https://tiosantos.pages.dev/">ver todos os textos</a></p>
   </footer>
+  <script>
+    function submitComment(event, form) {
+      event.preventDefault();
+      var button = form.querySelector('.comment-submit');
+      var status = form.nextElementSibling;
+      button.disabled = true;
+      button.textContent = 'Enviando…';
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (!response.ok) throw new Error('Falha no envio');
+        form.reset();
+        form.hidden = true;
+        status.hidden = false;
+      }).catch(function() {
+        button.disabled = false;
+        button.textContent = 'Enviar comentário';
+        status.textContent = 'Não foi possível enviar agora. Tente novamente.';
+        status.hidden = false;
+      });
+    }
+  </script>
 </body>
 </html>

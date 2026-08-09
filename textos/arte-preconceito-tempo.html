@@ -6,6 +6,7 @@
   <title>Arte, preconceito e o que o tempo revela — Tio Santos</title>
   <meta name="description" content="Obras nascem dentro de um tempo e carregam as suas contradições. Reconhecer isso não é cancelar ninguém. É ler com os olhos abertos.">
   <link rel="canonical" href="https://tiosantos.pages.dev/textos/arte-preconceito-tempo.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +15,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://tiosantos.pages.dev/textos/arte-preconceito-tempo.html" />
-  <meta property="og:title" content="Arte, preconceito e o que o tempo revela — Tio Santos" />
+  <meta property="og:title" content="Arte, preconceito e o que o tempo revela" />
+  <meta property="og:site_name" content="★ tiosantos" />
   <meta property="og:description" content="Obras nascem dentro de um tempo e carregam as suas contradições. Reconhecer isso não é cancelar ninguém. É ler com os olhos abertos." />
   <meta property="og:image" content="https://tiosantos.pages.dev/tiosantos.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -23,7 +25,7 @@
   <meta property="article:published_time" content="2026-07-22" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Arte, preconceito e o que o tempo revela — Tio Santos" />
+  <meta name="twitter:title" content="Arte, preconceito e o que o tempo revela" />
   <meta name="twitter:description" content="Obras nascem dentro de um tempo e carregam as suas contradições. Reconhecer isso não é cancelar ninguém. É ler com os olhos abertos." />
   <meta name="twitter:image" content="https://tiosantos.pages.dev/tiosantos.jpg" />
 
@@ -32,7 +34,7 @@
     :root {
       --white: #ffffff;
       --off-white: #f7f5f0;
-      --mid-gray: #999;
+      --mid-gray: #666;
       --dark-gray: #444;
       --text: #1a1a1a;
       --accent: #2c5f8a;
@@ -121,8 +123,52 @@
       font-weight: 500;
       text-decoration: none;
       color: #fff;
-      background: #25D366;
+      background: #087a35;
     }
+    .comment-form {
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+    }
+    .comment-heading {
+      margin-bottom: 0.8rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dark-gray);
+    }
+    .comment-field-label {
+      display: block;
+      margin: 0.4rem 0 0.25rem;
+      font-size: 0.8rem;
+      color: var(--dark-gray);
+    }
+    .comment-input,
+    .comment-textarea {
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--off-white);
+      color: var(--text);
+      font: inherit;
+    }
+    .comment-textarea { min-height: 110px; resize: vertical; }
+    .comment-submit {
+      margin-top: 0.7rem;
+      padding: 0.65rem 1rem;
+      border: 0;
+      border-radius: 4px;
+      background: var(--accent);
+      color: var(--white);
+      font: inherit;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .comment-submit:disabled { opacity: 0.65; cursor: wait; }
+    .comment-success { margin-top: 0.7rem; color: var(--accent); }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
     footer {
       background: var(--off-white);
       border-top: 1px solid var(--border);
@@ -133,6 +179,13 @@
       font-family: var(--sans);
     }
     footer a { color: var(--accent); text-decoration: none; }
+    .micro-imagem {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto 1.5rem;
+      display: block;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
@@ -143,6 +196,7 @@
     <p class="micro-tipo">Comentário cultural</p>
     <p class="micro-data">22 de julho de 2026</p>
     <h1>Arte, preconceito e o que o tempo revela</h1>
+
     <div class="micro-texto">
       <p>O Brasil voltou a discutir os limites entre liberdade artística e responsabilidade social. O estopim foi uma entrevista do cantor João Bosco ao Estadão, pelos seus 80 anos. Ele criticou os movimentos identitários e afirmou que quem questiona músicas antigas por retratarem violência contra a mulher precisa ser melhor medicado, defendendo Gol Anulado, parceria com Aldir Blanc de 1976 cuja letra descreve agressão contra a mulher. Para o compositor, a música é crônica, registro poético de um tempo, e não deve ser lida como manual de conduta. O argumento é antigo e não resolve tudo. Obras que romantizam a violência contra a mulher não deixam de fazer estrago só porque foram escritas com intenção poética.</p>
       <p>Na literatura infantil, Menina Bonita do Laço de Fita, de Ana Maria Machado, clássico distribuído em escolas desde 1986, também acumula leituras incômodas. A intenção da obra é antirracista, e nisso não há dúvida. Mas o texto e as ilustrações carregam contradições que o tempo foi revelando. A mãe da menina aparece desenhada de forma muito sensual, o oposto da imagem de mães brancas em livros infantis. A ninhada de coelhos que celebra a miscigenação não tem nenhum coelho realmente preto, apenas marronzinhos. E se não fosse pela companhia do coelho e de sua mãe, a menina seria uma criança solitária, sem nenhum vizinho humano que viesse brincar com ela. Na história, a menina negra existe como objeto de admiração, mas é o coelho branco quem age, quem pergunta, quem busca e quem realiza o sonho de ter uma filha pretinha. A protagonista, no fundo, protagoniza pouco.</p>
@@ -152,14 +206,51 @@
 
     <div class="share-buttons">
       <a class="share-btn" target="_blank" rel="noopener"
-         href="https://wa.me/?text=Obras%20nascem%20dentro%20de%20um%20tempo%20e%20carregam%20as%20suas%20contradi%C3%A7%C3%B5es.%20Reconhecer%20isso%20n%C3%A3o%20%C3%A9%20cancelar%20ningu%C3%A9m.%20%C3%89%20ler%20com%20os%20olhos%20abertos.%0A%0ALeia%20o%20texto%20completo%20em%20https%3A//tiosantos.pages.dev/textos/arte-preconceito-tempo.html">
+         href="https://wa.me/?text=https%3A//tiosantos.pages.dev/textos/arte-preconceito-tempo.html">
         Compartilhar no WhatsApp
       </a>
     </div>
+
+    <section class="comment-form" aria-labelledby="comment-heading">
+      <p class="comment-heading" id="comment-heading">Envie seu comentário</p>
+      <form action="https://formspree.io/f/xeeyekeb" method="POST" onsubmit="submitComment(event, this)">
+        <input type="hidden" name="texto" value="Arte, preconceito e o que o tempo revela">
+        <label class="comment-field-label" for="comment-nome">Seu nome (opcional)</label>
+        <input class="comment-input" id="comment-nome" type="text" name="nome" autocomplete="name">
+        <label class="comment-field-label" for="comment-mensagem">Comentário</label>
+        <textarea class="comment-textarea" id="comment-mensagem" name="mensagem" required></textarea>
+        <button class="comment-submit" type="submit">Enviar comentário</button>
+      </form>
+      <p class="comment-success" role="status" aria-live="polite" hidden>Comentário enviado. Obrigado!</p>
+    </section>
   </main>
 
   <footer>
     <p>Valdemir de Oliveira Gomes — Tio Santos · <a href="https://tiosantos.pages.dev/">ver todos os textos</a></p>
   </footer>
+  <script>
+    function submitComment(event, form) {
+      event.preventDefault();
+      var button = form.querySelector('.comment-submit');
+      var status = form.nextElementSibling;
+      button.disabled = true;
+      button.textContent = 'Enviando…';
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (!response.ok) throw new Error('Falha no envio');
+        form.reset();
+        form.hidden = true;
+        status.hidden = false;
+      }).catch(function() {
+        button.disabled = false;
+        button.textContent = 'Enviar comentário';
+        status.textContent = 'Não foi possível enviar agora. Tente novamente.';
+        status.hidden = false;
+      });
+    }
+  </script>
 </body>
 </html>
