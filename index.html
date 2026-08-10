@@ -1670,7 +1670,10 @@ medíocre estrutura</p>
 
     function shareWAMicro(resumo, ancId) {
       const link = 'https://tiosantos.pages.dev/textos/' + ancId + '.html';
-      const texto = resumo + '\n\nLeia o texto completo em ' + link;
+      const texto = resumo
+        + '\n\n*★ tiosantos*'
+        + '\n\nLeia o texto completo em\n'
+        + link;
       const url = 'https://wa.me/?text=' + encodeURIComponent(texto);
       window.open(url, '_blank');
     }

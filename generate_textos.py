@@ -319,11 +319,16 @@ def gerar_pagina(item: dict) -> str:
     else:
         imagem_card = f"{SITE_URL}/tiosantos.jpg"  # imagem padrão até haver card individual
         imagem_html = ""
-    # Só o link: o WhatsApp já monta título, resumo e imagem a partir do
-    # og:title / og:description / og:image da própria página, então incluir
-    # o resumo aqui de novo duplicava a informação na mensagem.
+    # Mensagem padronizada. O link mantém a prévia com título, resumo e imagem;
+    # a assinatura aparece no corpo da mensagem em negrito no WhatsApp.
     import urllib.parse
-    whatsapp_texto = urllib.parse.quote(url_pagina)
+    mensagem_whatsapp = (
+        f"{item['resumo']}\n\n"
+        "*★ tiosantos*\n\n"
+        "Leia o texto completo em\n"
+        f"{url_pagina}"
+    )
+    whatsapp_texto = urllib.parse.quote(mensagem_whatsapp)
 
     return PAGE_TEMPLATE.format(
         titulo_esc=titulo_esc,
@@ -400,7 +405,10 @@ def atualizar_index(index_content: str) -> str:
     }""",
         """function shareWAMicro(resumo, ancId) {
       const link = 'https://tiosantos.pages.dev/textos/' + ancId + '.html';
-      const texto = resumo + '\\n\\nLeia o texto completo em ' + link;
+      const texto = resumo
+        + '\\n\\n*★ tiosantos*'
+        + '\\n\\nLeia o texto completo em\\n'
+        + link;
       const url = 'https://wa.me/?text=' + encodeURIComponent(texto);
       window.open(url, '_blank');
     }"""
