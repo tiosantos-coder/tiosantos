@@ -1,6 +1,14 @@
 {
   "microtextos": [
     {
+      "id": "a-regua-torta",
+      "data": "2026-09-20",
+      "titulo": "A Régua Torta",
+      "tipo": "Comentário cultural",
+      "resumo": "Toda régua é torta. E nem sempre é sobre física.",
+      "texto": "Num fim de tarde qualquer, no Bar do Zé, ele largou o pano no balcão e disse:\n— tiosantos, o Universo está mais perto de você do que o átomo.\n\nEu ri e fiz que não com a cabeça. Um átomo cabe na ponta do dedo, um próton menor ainda. Parece perto. E o Universo parece longe, longe demais. Além disso, o pequeno eu uso todo dia, o celular no meu bolso funciona na base do elétron.\n\nA conta, porém, dá razão ao Zé. Da nossa altura até o fim do que se pode enxergar são 27 degraus, cada um dez vezes maior que o anterior. Até a menor escala que a física ousa nomear são 35. Estamos mais perto do gigante do que do minúsculo. E o meio do caminho não é o átomo nem o próton. É um grão de poeira, a espessura de um fio de cabelo. O centro da régua inteira é do tamanho de uma gotícula de espirro.\n\nMas há uma virada, e eu tinha um argumento. O pequeno a gente manipula quebrando núcleos de átomos em aceleradores de partículas. O grande a gente só alcança olhando, e uma parte dele já saiu do nosso alcance para sempre.\n\nO Zé serviu outra cachaça e fechou:\n— Perto no número, longe da mão. Longe no número, perto do olho. Então a régua é torta, tiosantos. Toda régua é. Depende do que a gente quer medir e de onde a gente está naquele momento da vida."
+    },
+    {
       "id": "milo-j-e-os-nossos",
       "data": "2026-09-16",
       "titulo": "Milo J e os nossos",
