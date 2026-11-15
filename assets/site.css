@@ -71,7 +71,7 @@ p { margin: 0; }
 .barra { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 16px; min-height: 72px; }
 .marca { font-family: var(--titulo); font-style: italic; font-weight: 600; font-size: 30px; color: var(--faixa-texto); text-decoration: none; padding: 8px 0; }
 .marca:hover { color: var(--faixa-ambar); }
-.menu { display: flex; gap: 36px; list-style: none; margin: 0; padding: 0; font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+.menu { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
 .menu a { display: inline-flex; align-items: center; min-height: 48px; color: var(--faixa-texto); text-decoration: none; }
 .menu a:hover, .menu a[aria-current="page"] { color: var(--faixa-ambar); }
 .menu-botao { display: none; align-items: center; gap: 10px; min-height: 48px; padding: 0 0 0 12px; background: none; border: 0; color: var(--faixa-texto); font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; }
@@ -133,6 +133,15 @@ p { margin: 0; }
 .peca p { font-size: 16px; color: var(--tinta-2); }
 .peca p.rotulo { font-size: 13px; color: var(--ambar); }
 .peca p.creditos { font-family: var(--mono); font-size: 13px; color: var(--apoio); }
+.peca { align-items: stretch; }
+.peca .trecho { font-family: var(--titulo); font-style: italic; font-weight: 500; font-size: 21px; line-height: 1.45; white-space: pre-line; color: var(--verde); }
+.peca audio { width: 100%; height: 44px; margin-top: 4px; }
+.peca-midia { position: relative; display: block; margin: 4px 0; }
+.peca-midia img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.peca-midia.video { background: #0F1F18; }
+.peca-midia.video img { aspect-ratio: 16 / 9; }
+.peca-midia svg { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.peca .link-mono { align-self: flex-start; gap: 8px; margin-top: auto; }
 .grupo + .grupo { margin-top: 64px; }
 .grupo > h2 { font-size: 40px; margin-bottom: 28px; }
 

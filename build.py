@@ -23,6 +23,7 @@ MARCA = "tiosantos"
 AUTOR = "Valdemir de Oliveira Gomes"
 DESCRICAO = "Poeta, compositor e cronista. Textos, músicas e reflexões sobre cultura, memória e identidade."
 CARD_PADRAO = "/tiosantos.jpg"
+SECAO_OBRA = "Textos, músicas e crônicas"
 FORMSPREE = "https://formspree.io/f/xeeyekeb"
 FONTES = ("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600"
           "&family=IBM+Plex+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&display=swap")
@@ -93,7 +94,7 @@ def pagina(caminho, titulo, descricao, corpo, atual="", imagem=CARD_PADRAO, tipo
            ld=None, extra_head="", capa=""):
     titulo_aba = MARCA if not titulo else f"{titulo} · {MARCA}"
     itens = [("Início", "/", "inicio"), ("Microtextos", "/microtextos.html", "microtextos"),
-             ("Obra", "/obra.html", "obra"), ("Sobre", "/sobre.html", "sobre")]
+             (SECAO_OBRA, "/obra.html", "obra"), ("Sobre", "/sobre.html", "sobre")]
     menu = "".join(
         f'<li><a href="{h}"{" aria-current=" + chr(34) + "page" + chr(34) if k == atual else ""}>{n}</a></li>'
         for n, h, k in itens)
@@ -150,7 +151,7 @@ def pagina(caminho, titulo, descricao, corpo, atual="", imagem=CARD_PADRAO, tipo
 </div>
 <ul>
 <li><a href="/microtextos.html">Microtextos</a></li>
-<li><a href="/obra.html">Obra</a></li>
+<li><a href="/obra.html">{SECAO_OBRA}</a></li>
 <li><a href="/sobre.html">Sobre</a></li>
 </ul>
 </div>
@@ -165,11 +166,8 @@ def pagina(caminho, titulo, descricao, corpo, atual="", imagem=CARD_PADRAO, tipo
 
 
 def partilha(titulo, resumo, caminho):
-    msg = f"{resumo}\n\n{titulo}, de {MARCA}\n{url(caminho)}"
     return f"""<div class="partilha">
 <p class="rotulo">Compartilhar</p>
-<a class="botao" href="https://wa.me/?text={quote(msg)}" target="_blank" rel="noopener">{IC_ZAP} WhatsApp</a>
-<button class="botao vazado" type="button" data-partilhar data-texto="{e(resumo)}" hidden>{IC_ENVIAR} Outros apps</button>
 <button class="botao vazado" type="button" data-copiar>{IC_LINK} Copiar link</button>
 </div>
 <p class="aviso partilha-aviso" role="status" aria-live="polite"></p>"""
@@ -314,12 +312,42 @@ def chamada_peca(o):
     return acao
 
 
+IC_PLAY = ('<svg aria-hidden="true" width="56" height="56" viewBox="0 0 56 56"><circle cx="28" cy="28" r="28" fill="#0F1F18" fill-opacity="0.82"/>'
+           '<path d="M23 18l16 10-16 10z" fill="#E3B45C"/></svg>')
+
+
+def trecho_versos(o, linhas=6):
+    """Primeiras linhas da letra ou do poema, para dar vida ao cartão."""
+    m = re.search(r'<p class="versos">(.*?)</p>', o.get("corpo", ""), flags=re.S)
+    if not m:
+        return ""
+    ls = [l.strip() for l in m.group(1).strip().split("\n") if l.strip()]
+    return "\n".join(ls[:linhas])
+
+
 def cartao_peca(o):
+    alvo = link_peca(o)
     cred = f'<p class="creditos">{e(o["creditos"])}</p>' if o.get("creditos") else ""
-    res = f'<p>{e(o["resumo"])}</p>' if o.get("resumo") else ""
+    midia = ""
+    if o.get("imagem"):
+        midia = (f'<a class="peca-midia" href="{alvo}" tabindex="-1" aria-hidden="true">'
+                 f'<img src="{e(o["imagem"])}" alt="" loading="lazy" decoding="async"></a>')
+    elif o.get("video_embed"):
+        vid = o["video_embed"].rstrip("/").split("/")[-1].split("?")[0]
+        midia = (f'<a class="peca-midia video" href="{alvo}" tabindex="-1" aria-hidden="true">'
+                 f'<img src="https://i.ytimg.com/vi/{e(vid)}/hqdefault.jpg" alt="" loading="lazy" decoding="async">{IC_PLAY}</a>')
+    versos = trecho_versos(o) if (o.get("audio") or o["tipo"] == "Poema") else ""
+    if versos:
+        texto = f'<p class="trecho">{versos}</p>'
+    elif o.get("resumo"):
+        texto = f'<p>{e(o["resumo"])}</p>'
+    else:
+        texto = ""
+    som = f'<audio controls preload="none" src="{e(o["audio"])}" aria-label="Ouvir {e(o["titulo"])}"></audio>' if o.get("audio") else ""
+    acao = "Ler a letra completa" if o.get("audio") else chamada_peca(o)
     return (f'<article class="peca"><p class="rotulo">{e(o["tipo"])}</p>'
-            f'<h3><a href="{link_peca(o)}">{e(o["titulo"])}</a></h3>{cred}{res}'
-            f'<a class="link-mono" href="{link_peca(o)}" aria-label="{chamada_peca(o)}: {e(o["titulo"])}">{chamada_peca(o)}</a></article>')
+            f'<h3><a href="{alvo}">{e(o["titulo"])}</a></h3>{cred}{midia}{texto}{som}'
+            f'<a class="link-mono" href="{alvo}" aria-label="{acao}: {e(o["titulo"])}">{acao} {SETA}</a></article>')
 
 
 def paginas_obra(obra):
@@ -349,7 +377,7 @@ def paginas_obra(obra):
         corpo = f"""<div class="miolo">
 <article class="artigo">
 <header class="artigo-cabeca">
-<p class="rotulo"><a href="/obra.html">Obra</a> <span>/ {e(o['tipo'])}</span></p>
+<p class="rotulo"><a href="/obra.html">{SECAO_OBRA}</a> <span>/ {e(o['tipo'])}</span></p>
 <h1>{e(o['titulo'])}</h1>
 {linha}
 </header>
@@ -378,13 +406,13 @@ def pagina_lista_obra(obra):
         grupos.append(f'<section class="grupo"><h2>Outros</h2><div class="grade">{"".join(cartao_peca(o) for o in resto)}</div></section>')
     corpo = f"""<div class="miolo">
 <header class="pagina-cabeca">
-<h1>Obra</h1>
+<h1>{SECAO_OBRA}</h1>
 <p>Escritos, músicas e registros sobre cultura, memória e identidade, em especial sobre Diadema, sua gente e suas histórias.</p>
 </header>
 {chr(10).join(grupos)}
 <div style="height: 88px"></div>
 </div>"""
-    pagina("obra.html", "Obra", "Poemas, crônicas, prosa poética e músicas de tiosantos sobre Diadema, sua gente e suas histórias.",
+    pagina("obra.html", SECAO_OBRA, "Poemas, crônicas, prosa poética e músicas de tiosantos sobre Diadema, sua gente e suas histórias.",
            corpo, atual="obra")
 
 
@@ -456,7 +484,7 @@ def pagina_inicio(ms, obra):
 </section>
 <section class="secao faixa-clara" aria-labelledby="obra-t">
 <div class="miolo">
-<div class="cabeca" style="margin-bottom: 36px"><h2 id="obra-t">Obra</h2><a class="link-mono" href="/obra.html">Poemas, crônicas e músicas</a></div>
+<div class="cabeca" style="margin-bottom: 36px"><h2 id="obra-t">{SECAO_OBRA}</h2><a class="link-mono" href="/obra.html">Ver tudo</a></div>
 <div class="grade">{"".join(cartao_peca(o) for o in destaques[:3])}</div>
 </div>
 </section>
