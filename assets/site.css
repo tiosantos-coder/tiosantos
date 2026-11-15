@@ -226,7 +226,7 @@ figure { margin: 0; }
   .js .menu { display: none; }
   .menu { flex-direction: column; gap: 0; width: 100%; padding: 4px 0 16px; border-top: 1px solid var(--faixa-fio); font-family: var(--titulo); font-size: 32px; font-weight: 600; letter-spacing: 0; text-transform: none; }
   .js .menu.aberto { display: flex; }
-  .menu a { min-height: 56px; width: 100%; }
+  .menu a { min-height: 56px; width: 100%; line-height: 1.15; padding: 8px 0; }
   .capa { grid-template-columns: minmax(0, 1fr); gap: 20px; padding: 24px 0 32px; }
   .capa-texto { gap: 14px; align-items: stretch; }
   .capa-resumo { font-size: 18px; }

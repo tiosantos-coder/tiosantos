@@ -3,7 +3,7 @@
 
 Uso (na pasta do site):  python build.py
 
-Escreve: index.html, microtextos.html, obra.html, sobre.html,
+Escreve: index.html, microtextos.html, obra.html, depoimento.html, sobre.html,
 textos/<id>.html (um por microtexto), obra/<id>.html (um por peça) e sitemap.xml.
 Só usa a biblioteca padrão do Python.
 
@@ -94,7 +94,8 @@ def pagina(caminho, titulo, descricao, corpo, atual="", imagem=CARD_PADRAO, tipo
            ld=None, extra_head="", capa=""):
     titulo_aba = MARCA if not titulo else f"{titulo} · {MARCA}"
     itens = [("Início", "/", "inicio"), ("Microtextos", "/microtextos.html", "microtextos"),
-             (SECAO_OBRA, "/obra.html", "obra"), ("Sobre", "/sobre.html", "sobre")]
+             (SECAO_OBRA, "/obra.html", "obra"),
+             ("Depoimento", "/depoimento.html", "depoimento"), ("Sobre", "/sobre.html", "sobre")]
     menu = "".join(
         f'<li><a href="{h}"{" aria-current=" + chr(34) + "page" + chr(34) if k == atual else ""}>{n}</a></li>'
         for n, h, k in itens)
@@ -152,6 +153,7 @@ def pagina(caminho, titulo, descricao, corpo, atual="", imagem=CARD_PADRAO, tipo
 <ul>
 <li><a href="/microtextos.html">Microtextos</a></li>
 <li><a href="/obra.html">{SECAO_OBRA}</a></li>
+<li><a href="/depoimento.html">Depoimento</a></li>
 <li><a href="/sobre.html">Sobre</a></li>
 </ul>
 </div>
@@ -418,30 +420,19 @@ def pagina_lista_obra(obra):
 
 # --------------------------------------------------------------- sobre
 def pagina_sobre():
-    d, p, c = SOBRE["depoimento"], SOBRE["perfil"], SOBRE["contato"]
-    foto = SOBRE.get("depoimento_imagem")
-    figura = (f'<figure class="artigo-imagem"><img src="{e(foto["src"])}" alt="{e(foto.get("alt", ""))}" loading="lazy" decoding="async">'
-              f'<figcaption>{e(foto.get("legenda", ""))}</figcaption></figure>') if foto else ""
+    p, c = SOBRE["perfil"], SOBRE["contato"]
     blocos = "".join(f'<div><h3>{e(b["titulo"])}</h3><ul>{"".join("<li>" + i + "</li>" for i in b["itens"])}</ul></div>' for b in p["blocos"])
     corpo = f"""<div class="miolo">
 <header class="pagina-cabeca">
 <h1>Sobre</h1>
 <p>{e(AUTOR)}, o {MARCA}. {e(DESCRICAO)}</p>
-<p class="atalhos"><a class="link-mono" href="#perfil">Perfil profissional</a><a class="link-mono" href="#depoimento">Depoimento teatral</a><a class="link-mono" href="#contato">Contato</a></p>
+<p class="atalhos"><a class="link-mono" href="#perfil">Perfil profissional</a><a class="link-mono" href="#contato">Contato</a><a class="link-mono" href="/depoimento.html">Depoimento teatral</a></p>
 </header>
 <section class="sobre-bloco" id="perfil" aria-labelledby="perfil-t">
 <p class="rotulo">{e(p['rotulo'])}</p>
 <h2 id="perfil-t">{e(p['titulo'])}</h2>
 <div class="prosa"><p>{p['texto']}</p></div>
 <div class="colunas">{blocos}</div>
-</section>
-<section class="sobre-bloco" id="depoimento" aria-labelledby="depoimento-t">
-<p class="rotulo">{e(d['rotulo'])}</p>
-<h2 id="depoimento-t">{e(d['titulo'])}</h2>
-{figura}
-<div class="prosa">
-{d['corpo']}
-</div>
 </section>
 <section class="sobre-bloco" id="contato" aria-labelledby="contato-t">
 <h2 id="contato-t">Contato</h2>
@@ -452,6 +443,32 @@ def pagina_sobre():
           "mainEntity": {"@type": "Person", "name": AUTOR, "alternateName": MARCA, "url": SITE + "/sobre",
                          "homeLocation": {"@type": "Place", "name": "Diadema, São Paulo"}, "description": sem_tags(p["texto"])}}
     pagina("sobre.html", "Sobre", cortar(p["texto"]), corpo, atual="sobre", ld=ld)
+
+
+def pagina_depoimento():
+    d = SOBRE["depoimento"]
+    foto = SOBRE.get("depoimento_imagem")
+    figura = (f'<figure class="artigo-imagem"><img src="{e(foto["src"])}" alt="{e(foto.get("alt", ""))}" decoding="async">'
+              f'<figcaption>{e(foto.get("legenda", ""))}</figcaption></figure>') if foto else ""
+    desc = cortar(d["corpo"])
+    corpo = f"""<div class="miolo">
+<article class="artigo">
+<header class="artigo-cabeca">
+<p class="rotulo">{e(d['rotulo'])}</p>
+<h1>{e(d['titulo'])}</h1>
+<p class="meta">{MARCA} · {minutos(sem_tags(d['corpo']))} min de leitura</p>
+</header>
+{figura}
+<div class="prosa">
+{d['corpo']}
+</div>
+{partilha(d['titulo'], desc, "depoimento.html")}
+{comentario(d['titulo'])}
+</article>
+</div>"""
+    pagina("depoimento.html", d["titulo"], desc, corpo, atual="depoimento", tipo="article",
+           imagem=(foto or {}).get("src") or CARD_PADRAO,
+           ld=ld_artigo("depoimento.html", d["titulo"], desc, (foto or {}).get("src") or CARD_PADRAO))
 
 
 # --------------------------------------------------------------- início
@@ -494,13 +511,13 @@ def pagina_inicio(ms, obra):
 <div>
 <p class="abre">{e(AUTOR)}, o {MARCA}. Poeta, compositor e cronista de Diadema.</p>
 <p class="segue">{p['texto']}</p>
-<p class="atalhos"><a class="link-mono" href="/sobre.html#perfil">Perfil profissional</a><a class="link-mono" href="/sobre.html#depoimento">Depoimento teatral</a><a class="link-mono" href="/sobre.html#contato">Contato</a></p>
+<p class="atalhos"><a class="link-mono" href="/sobre.html#perfil">Perfil profissional</a><a class="link-mono" href="/depoimento.html">Depoimento teatral</a><a class="link-mono" href="/sobre.html#contato">Contato</a></p>
 </div>
 </div>
 </section>"""
     antigos = {m["id"]: f"/textos/{m['id']}.html" for m in ms}
     antigos.update({"microtextos": "/microtextos.html", "textos": "/obra.html",
-                    "depoimento": "/sobre.html#depoimento", "perfil": "/sobre.html#perfil"})
+                    "depoimento": "/depoimento.html", "perfil": "/sobre.html#perfil"})
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": MARCA, "url": SITE + "/", "inLanguage": "pt-BR",
           "description": DESCRICAO, "author": {"@type": "Person", "name": AUTOR, "alternateName": MARCA}}
     pagina("index.html", "", f"{AUTOR}, o {MARCA}. {DESCRICAO}", corpo, atual="inicio", ld=ld, capa=capa,
@@ -534,6 +551,7 @@ if __name__ == "__main__":
     paginas_micro(MICRO)
     pagina_lista_obra(OBRA)
     paginas_obra(OBRA)
+    pagina_depoimento()
     pagina_sobre()
     sitemap(MICRO)
     print(f"{len(PAGINAS)} páginas geradas: {len(MICRO)} microtextos, {len(OBRA)} peças de obra.")
